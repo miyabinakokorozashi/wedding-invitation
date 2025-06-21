@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <title>Masayuki &amp; Moe | Wedding Invitation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <!-- Google Fonts: Dancing Script for elegant yet legible script -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@100;300;400;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --brand-green: #2c7a7b;
+      --brand-green-light: #e6f1f1;
+      --max-width: 800px;
+    }
+    * { box-sizing: border-box; }
+    html,body {
+      margin:0; padding:0;
+      font-family:"Montserrat","Noto Serif JP",serif;
+      line-height:1.7;
+      background:#ffffff;
+      color:#333;
+      -webkit-font-smoothing: antialiased;
+    }
+    h2, h3 { margin:0; }
+    a { color:var(--brand-green); text-decoration:none; }
+
+    /* HERO */
+    .hero{position:relative;height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;overflow:hidden;}
+    .hero-bg{
+      position:absolute;inset:0;
+      background-size:cover;background-position:center;
+      /* Safari で背景が消える問題に対処: -webkit-filter を明示 */
+      -webkit-filter: blur(12px) brightness(0.7);
+      filter: blur(12px) brightness(0.7);
+      transition:opacity 1.5s ease,transform 8s ease-out;
+    }
+    .hero-bg.below{opacity:0;transform:scale(1.15);} .hero-bg.above{opacity:1;transform:scale(1);}   
+    .hero-overlay{position:absolute;inset:0;background:rgba(0,0,0,.35);z-index:1;}
+    .hero-card{position:relative;z-index:2;width:90%;max-width:420px;aspect-ratio:3/4;background-size:cover;background-position:center;border-radius:18px;box-shadow:0 10px 32px rgba(0,0,0,.4);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2.5rem;transition:opacity .6s ease;backdrop-filter:brightness(1.05);}
+    .hero-title {
+      font-family: "Dancing Script", cursive;
+      font-weight: 400;
+      /* サイズ保持 */
+      font-size: clamp(2.5rem, 8vw, 6rem);
+      margin: 0;
+      /* 中抜き＋さらに細いホワイトアウトライン */
+      -webkit-text-fill-color: transparent;
+      -webkit-text-stroke: 0.2px rgba(255,255,255,0.8);
+      /* シャドウを軽めに */
+      text-shadow: 0 0 0.5px rgba(255,255,255,0.6);
+    }
+    .names-small,.hero-date{font-size:.95rem;font-weight:300;letter-spacing:1px;color:rgba(255,255,255,.9);text-shadow:1px 1px 3px rgba(0,0,0,.5);margin-top:.6rem;}
+    .scroll-indicator{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%) rotate(45deg);width:26px;height:26px;border-bottom:2px solid #fff;border-right:2px solid #fff;animation:bounce 2s infinite;opacity:.85;z-index:2;}
+    @keyframes bounce{0%,20%,50%,80%,100%{transform:translate(-50%,0) rotate(45deg);}40%{transform:translate(-50%,9px) rotate(45deg);}60%{transform:translate(-50%,4px) rotate(45deg);}}
+
+    /* SECTIONS */
+    .section{padding:clamp(3rem,8vw,5rem) 1.25rem;background:#fff;}
+    .section.alt{background:var(--brand-green-light);}
+    .section-inner{max-width:var(--max-width);margin:0 auto;}
+    .heading{font-family:"Noto Serif JP",serif;font-size:1.6rem;letter-spacing:3px;text-align:center;color:var(--brand-green);margin-bottom:2rem;position:relative;}
+    .heading::before,.heading::after{content:"";position:absolute;top:50%;width:40px;height:1px;background:var(--brand-green);} .heading::before{left:0;} .heading::after{right:0;} .heading span{padding:0 1.5rem;background:inherit;}
+
+    .card{background:#fff;border-radius:12px;box-shadow:0 6px 24px rgba(0,0,0,.06);padding:2.5rem 1.75rem;}
+    .btn{display:inline-block;padding:0.9rem 2.4rem;font-size:1rem;border-radius:30px;background:var(--brand-green);color:#fff;text-decoration:none;transition:opacity .25s;} .btn:hover{opacity:.85;}
+    footer{background:var(--brand-green);color:#fff;text-align:center;padding:2rem 1rem;font-size:.9rem;}
+
+    @media(min-width:600px){.names-small,.hero-date{font-size:1rem;} .section{padding:5rem 1.25rem;} }
+  </style>
+</head>
+<body>
+  <!-- HERO -->
+  <header class="hero" id="hero">
+    <div class="hero-bg above" id="bg1"></div>
+    <div class="hero-bg below" id="bg2"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-card" id="card">
+      <h1 class="hero-title">Wedding Invitation</h1>
+      <p class="names-small">Masayuki &amp; Moe</p>
+      <p class="hero-date">2025.8.23 Sat</p>
+    </div>
+    <span class="scroll-indicator"></span>
+  </header>
+
+  <!-- MESSAGE SECTION -->
+  <section class="section alt">
+    <div class="section-inner card">
+      <h2 class="heading"><span>Message</span></h2>
+      <p style="text-align:center;line-height:2;">
+        親愛なる皆様<br/>
+        私たちはこのたび結婚式を挙げる運びとなりました。<br/>
+        日頃お世話になっている皆様に感謝を込めて、ささやかながら披露の場を設けました。<br/>
+        ぜひご臨席いただき、ともに楽しい時間をお過ごしいただければ幸いです。
+      </p>
+      <p style="text-align:right;margin-top:2rem;">令和7年5月吉日</p>
+    </div>
+  </section>
+
+  <!-- VENUE SECTION -->
+  <section class="section">
+    <div class="section-inner">
+      <h2 class="heading"><span>式場のご案内</span></h2>
+      <p style="text-align:center;line-height:2;">
+        <strong>軽井沢高原教会</strong><br/>
+        〒389‑0100 長野県北佐久郡軽井沢町星野<br/>
+        <a href="https://maps.app.goo.gl/" target="_blank">Google Map を見る</a>
+      </p>
+      <p style="text-align:center;"><em>※ 駐車場完備 ／ JR軽井沢駅から車で約15分</em></p>
+    </div>
+  </section>
+
+  <!-- SCHEDULE SECTION -->
+  <section class="section alt">
+    <div class="section-inner card">
+      <h2 class="heading"><span>タイムスケジュール</span></h2>
+      <ul style="list-style:none;padding:0;margin:0;font-size:1.05rem;line-height:2;text-align:center;">
+        <li>挙式&nbsp;：&nbsp;2025年 8月23日 (土) 14:00 - 14:30</li>
+        <li>披露宴：&nbsp;14:50 - 17:30</li>
+        <li>アフターパーティ：&nbsp;18:00 - 20:00（希望者のみ）</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- RSVP SECTION -->
+  <section class="section" style="text-align:center;">
+    <div class="section-inner">
+      <h2 class="heading"><span>ご出欠のご回答</span></h2>
+      <p>恐れ入りますが<strong>7月31日(木) まで</strong>に、以下のボタンよりご回答ください。</p>
+      <a href="https://forms.gle/" target="_blank" class="btn">RSVP</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    ご不明な点がございましたら <a href="mailto:example@example.com" style="color:#fff;text-decoration:underline;">こちら</a> までお気軽にご連絡ください。<br />
+    © 2025 Masayuki &amp; Moe
+  </footer>
+
+  <!-- IMAGE SLIDESHOW SCRIPT -->
+  <script>
+    const imgs = [
+      "https://i.imgur.com/OvIjEjW.jpg",
+      "https://i.imgur.com/F1jO33R.jpg",
+      "https://i.imgur.com/SRdgCUo.jpg",
+      "https://i.imgur.com/fZglU3s.jpg",
+      "https://i.imgur.com/DE2lMyW.jpg"
+    ];
+    let bg1 = document.getElementById("bg1");
+    let bg2 = document.getElementById("bg2");
+    const card = document.getElementById("card");
+
+    function setBG(el, url){ el.style.backgroundImage = `url('${url}')`; }
+    function setCard(url){
+      card.style.opacity = 0;
+      setTimeout(()=>{ card.style.backgroundImage = `url('${url}')`; card.style.opacity = 1; }, 400);
+    }
+
+    let curr = 0;
+    setBG(bg1, imgs[curr]);
+    setBG(bg2, imgs[curr]);
+    setCard(imgs[curr]);
+
+    const INTERVAL = 6000;
+    setInterval(()=>{
+      const next = (curr + 1) % imgs.length;
+      setBG(bg2, imgs[next]);
+      bg2.classList.remove("above"); bg2.classList.add("below");
+      requestAnimationFrame(()=>{
+        bg2.classList.remove("below"); bg2.classList.add("above");
+        bg1.classList.remove("above"); bg1.classList.add("below");
+        [bg1, bg2] = [bg2, bg1];
+      });
+      setCard(imgs[next]);
+      curr = next;
+    }, INTERVAL);
+  </script>
+</body>
+</html>
