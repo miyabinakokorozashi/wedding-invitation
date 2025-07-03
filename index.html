@@ -33,7 +33,16 @@
     .hero-bg.below{opacity:0;transform:scale(1.15);} .hero-bg.above{opacity:1;transform:scale(1);}   
     .hero-overlay{position:absolute;inset:0;background:rgba(0,0,0,.35);z-index:1;}
     .hero-card{position:relative;z-index:2;width:90%;max-width:420px;aspect-ratio:3/4;background-size:cover;background-position:center;border-radius:18px;box-shadow:0 10px 32px rgba(0,0,0,.4);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2.5rem;transition:opacity .6s ease;backdrop-filter:brightness(1.05);}    
-    .hero-title{font-family:"Dancing Script",cursive;font-weight:400;font-size:clamp(2.5rem,8vw,6rem);margin:0;-webkit-text-fill-color:transparent;-webkit-text-stroke:0.2px rgba(255,255,255,0.8);text-shadow:0 0 0.5px rgba(255,255,255,0.6);}    
+    .hero-title{
+      font-family:"Dancing Script",cursive;
+      font-weight:400;
+      /* スマホでも読みやすいように最小値を大きめに調整 */
+      font-size:clamp(3rem,10vw,6rem);
+      margin:0;
+      -webkit-text-fill-color:transparent;
+      -webkit-text-stroke:0.2px rgba(255,255,255,0.8);
+      text-shadow:0 0 0.5px rgba(255,255,255,0.6);
+    }margin:0;-webkit-text-fill-color:transparent;-webkit-text-stroke:0.2px rgba(255,255,255,0.8);text-shadow:0 0 0.5px rgba(255,255,255,0.6);}    
     .names-small,.hero-date{font-size:.95rem;font-weight:300;letter-spacing:1px;color:rgba(255,255,255,.9);text-shadow:1px 1px 3px rgba(0,0,0,.5);margin-top:.6rem;}
     .scroll-indicator{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%) rotate(45deg);width:26px;height:26px;border-bottom:2px solid #fff;border-right:2px solid #fff;animation:bounce 2s infinite;opacity:.85;z-index:2;}
     @keyframes bounce{0%,20%,50%,80%,100%{transform:translate(-50%,0) rotate(45deg);}40%{transform:translate(-50%,9px) rotate(45deg);}60%{transform:translate(-50%,4px) rotate(45deg);}}
@@ -79,7 +88,7 @@
     <div class="section-inner card">
       <h2 class="heading gold"><span>ご挨拶</span></h2>
       <p style="text-align:center; line-height:2; word-break:keep-all;">
-        私たちは令和5年2月22日に結婚し、<br/>
+        私たちは令和5年2月22日に入籍し、<br/>
         新たな生活をスタートしました。<br/>
         大切な皆様をご招待し、<br/>
         感謝の気持ちを<br/>
