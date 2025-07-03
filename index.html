@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="utf-8" />
-  <title>Masayuki & Moe | Wedding Invitation</title>
+  <title>Masayuki &amp; Moe | Wedding Invitation</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@100;300;400;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet" />
@@ -23,12 +23,16 @@
     }
     a { color:var(--brand-green); text-decoration:none; }
 
-    /* HERO styles unchanged ... */
+    /* Reveal Animations */
+    .hidden {opacity:0; transform:translateY(20px); transition:opacity 1.2s ease-out, transform 1.2s ease-out;}
+    .visible{opacity:1; transform:translateY(0);}    
+
+    /* HERO */
     .hero{position:relative;height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;overflow:hidden;}
-    .hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;-webkit-filter:blur(12px) brightness(0.7);filter:blur(12px) brightness(0.7);transition:opacity 1.5s ease,transform 8s ease-out;}
+    .hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;-webkit-filter:blur(12px) brightness(0.7);filter:blur(12px) brightness(0.7);transition:opacity 1.5s ease,transform 8s ease-out;-webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,1) 60%,rgba(0,0,0,0) 100%);mask-image:linear-gradient(to bottom,rgba(0,0,0,1) 60%,rgba(0,0,0,0) 100%);}    
     .hero-bg.below{opacity:0;transform:scale(1.15);} .hero-bg.above{opacity:1;transform:scale(1);}   
     .hero-overlay{position:absolute;inset:0;background:rgba(0,0,0,.35);z-index:1;}
-    .hero-card{position:relative;z-index:2;width:90%;max-width:420px;aspect-ratio:3/4;background-size:cover;background-position:center;border-radius:18px;box-shadow:0 10px 32px rgba(0,0,0,.4);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2.5rem;transition:opacity .6s ease;backdrop-filter:brightness(1.05);}
+    .hero-card{position:relative;z-index:2;width:90%;max-width:420px;aspect-ratio:3/4;background-size:cover;background-position:center;border-radius:18px;box-shadow:0 10px 32px rgba(0,0,0,.4);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2.5rem;transition:opacity .6s ease;backdrop-filter:brightness(1.05);}    
     .hero-title{font-family:"Dancing Script",cursive;font-weight:400;font-size:clamp(2.5rem,8vw,6rem);margin:0;-webkit-text-fill-color:transparent;-webkit-text-stroke:0.2px rgba(255,255,255,0.8);text-shadow:0 0 0.5px rgba(255,255,255,0.6);}    
     .names-small,.hero-date{font-size:.95rem;font-weight:300;letter-spacing:1px;color:rgba(255,255,255,.9);text-shadow:1px 1px 3px rgba(0,0,0,.5);margin-top:.6rem;}
     .scroll-indicator{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%) rotate(45deg);width:26px;height:26px;border-bottom:2px solid #fff;border-right:2px solid #fff;animation:bounce 2s infinite;opacity:.85;z-index:2;}
@@ -36,14 +40,16 @@
 
     /* SECTION GENERIC */
     .section{padding:clamp(3rem,8vw,5rem) 1.25rem;background:#fff;}
-    .section.alt{background:var(--brand-green-light);}
+    .section.alt{background:var(--brand-green-light);}    
     .section-inner{max-width:clamp(320px,90%,420px);margin:0 auto;}
     .heading{font-family:"Noto Serif JP",serif;font-size:1.6rem;letter-spacing:3px;text-align:center;color:var(--brand-green);margin-bottom:2rem;position:relative;}
     .heading::before,.heading::after{content:"";position:absolute;top:50%;width:40px;height:1px;background:var(--brand-green);} .heading::before{left:0;} .heading::after{right:0;} .heading span{padding:0 1.5rem;background:inherit;}
+    .heading.gold::before,.heading.gold::after{background:#b38b00;}
+    .heading.gold span{color:#b38b00;}
     .card{background:#fff;border-radius:12px;box-shadow:0 6px 24px rgba(0,0,0,.06);padding:2.5rem 1.75rem;}
 
     /* COUNTDOWN */
-    .countdown-wrapper{background:var(--brand-green);color:#fff;text-align:center;padding:3rem 1rem;}
+    .countdown-wrapper{background:linear-gradient(to bottom,rgba(44,122,123,0) 0%,rgba(44,122,123,0.8) 30%,rgba(44,122,123,1) 100%);color:#fff;text-align:center;padding:3rem 1rem;}
     .countdown-title{font-family:"Noto Serif JP",serif;font-size:1rem;letter-spacing:3px;text-transform:uppercase;margin:0 0 1rem;}
     .countdown{display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap;}
     .countdown-item{font-family:"Noto Serif JP",serif;}
@@ -69,128 +75,93 @@
   </header>
 
   <!-- MESSAGE SECTION -->
-  <section class="section alt">
+  <section class="section alt hidden" style="background: url('https://i.imgur.com/JKTUIY7.jpg') center/cover no-repeat; background-size: cover; -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%); mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);">
     <div class="section-inner card">
-      <h2 class="heading"><span>ご挨拶</span></h2>
-      <p style="text-align:center; white-space:pre-wrap; line-height:2;">
-親愛なる皆様
-私たちは令和5年2月22日に入籍し
-新生活をスタートしました
-このたび　皆様にご挨拶　ご披露をかねまして
-結婚式をすることに致しました
-この新たな出発の日を
-日頃お世話になっております皆様と
-楽しく過ごさせて頂ければ幸いに存じます
-心ばかりの披露パーティーですが
-皆様とお会いできますことを楽しみにしております
-おいそがしい中と存じますが
-ぜひご出席くださいますようご案内申し上げます
-
-令和7年6月吉日      </p>
+      <h2 class="heading gold"><span>ご挨拶</span></h2>
+      <p style="text-align:center; line-height:2; word-break:keep-all;">
+        私たちは令和5年2月22日に結婚し、<br/>
+        新たな生活をスタートしました。<br/>
+        大切な皆様をご招待し、<br/>
+        感謝の気持ちをお伝えする場を設けました。<br/>
+        ぜひご祝福いただき、<br/>
+        楽しいひとときを共に過ごせれば幸いです。<br/>
+        ご多用中とは存じますが、<br/>
+        何卒よろしくお願いいたします。<br/><br/>
+        令和7年7月吉日
+      </p>
     </div>
   </section>
 
   <!-- COUNTDOWN SECTION -->
-  <section class="countdown-wrapper">
+  <section class="countdown-wrapper hidden">
     <p class="countdown-title">Countdown</p>
     <div id="countdown" class="countdown" aria-label="Wedding countdown"></div>
   </section>
 
-  <!-- VENUE SECTION -->
-  <section class="section">
+  <!-- EVENT + VENUE + RSVP SECTION -->
+  <section class="section hidden" style="background:linear-gradient(180deg,#2c7a7b 0%, #e6f1f1 100%);">
     <div class="section-inner">
-      <h2 class="heading"><span>式場のご案内</span></h2>
-      <p style="text-align:center;line-height:2;">
-        <strong><a href="https://www.karuizawachurch.org/" target="_blank" style="color:var(--brand-green)">軽井沢高原教会</a></strong><br/>
-        〒389-0100 長野県北佐久郡軽井沢町星野<br/>
-        <a href="https://www.google.com/maps/place/%E8%BB%BD%E4%BA%95%E6%B2%A2%E9%AB%98%E5%8E%9F%E6%95%99%E4%BC%9A/@36.3581397,138.5893323,15z" target="_blank">Google Maps で見る</a>
-      </p>
-      <div style="text-align:center; margin-top:1rem;">
-        <img src="https://i.imgur.com/7FVwP6E.jpg" alt="軽井沢高原教会" style="width:100%; max-width:420px; border-radius:8px; box-shadow:0 4px 16px rgba(0,0,0,0.1);" />
+      <div class="card" style="padding:2rem; max-width:460px; margin:0 auto; text-align:center; border:2px solid #b38b00; background:#fff;">
+        <!-- EVENT -->
+        <h2 class="heading gold" style="margin-bottom:1rem;"><span>EVENT</span></h2>
+        <p style="margin:0.5rem 0; color:var(--brand-green); font-size:1rem;">2025年8月23日(土)</p>
+        <div style="display:flex; flex-direction:column; align-items:center; gap:0.4rem; margin:1rem 0; line-height:1.4;">
+          <div><span style="font-weight:bold;">集合時間</span> 17:00</div>
+          <div><span style="font-weight:bold;">挙式</span> 17:45</div>
+          <div><span style="font-weight:bold;">披露宴</span> 19:15</div>
+        </div>
+        <!-- VENUE -->
+        <h2 class="heading gold" style="margin-bottom:1rem;"><span>式場のご案内</span></h2>
+        <p style="margin:0.25rem 0;"><a href="https://www.karuizawachurch.org/" target="_blank" style="color:var(--brand-green); font-weight:bold;">軽井沢高原教会</a></p>
+        <p style="margin:0.25rem 0;"><a href="https://miyabinakokorozashi.github.io/wedding-invitation/chizu.pdf" target="_blank" style="color:var(--brand-green); text-decoration:underline;">ホテル館内マップ</a></p>
+        <p style="margin:0.25rem 0;">〒389-0100 長野県北佐久郡軽井沢町星野</p>
+        <p style="margin:0.5rem 0;"><a href="https://www.google.com/maps/place/%E8%BB%BD%E4%BA%95%E6%B2%A2%E9%AB%98%E5%8E%9F%E6%95%99%E4%BC%9A/@36.3581397,138.5893323,15z" target="_blank">Google Maps で見る</a></p>
+        <div style="text-align:center; margin-top:1rem;">
+          <img src="https://i.imgur.com/7FVwP6E.jpg" alt="軽井沢高原教会の外観" style="width:100%; max-width:400px; border-radius:8px; box-shadow:0 4px 16px rgba(0,0,0,0.1);" />
+        </div>
+        <!-- RSVP -->
+        <div style="margin-top:2rem;">
+          <a href="https://forms.gle/Kvt7Lyra9kwqvnAY9" class="btn" target="_blank" rel="noopener noreferrer">ご出欠のご回答</a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- SCHEDULE SECTION -->
-  <section class="section alt">
-    <div class="section-inner card">
-      <h2 class="heading"><span>タイムスケジュール</span></h2>
-      <ul style="list-style:none;padding:0;margin:0;font-size:1.05rem;line-height:2;text-align:center;">
-        <li>挙式&nbsp;：&nbsp;2025年 8月23日 (土) 17:45 - 19:00</li>
-        <li>披露宴&nbsp;：&nbsp;19:00 - 21:00</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- RSVP SECTION -->
-  <section class="section" style="text-align:center;">
-    <div class="section-inner">
-      <h2 class="heading"><span>ご出欠のご回答</span></h2>
-      <p>恐れ入りますが<strong>7月31日(木) まで</strong>に、以下のボタンよりご回答ください。</p>
-      <a href="https://forms.gle/" target="_blank" class="btn">RSVP</a>
-    </div>
-  </section>
-
-  <!-- PHOTO SLIDER SECTION removed as requested -->
+  <!-- IMAGE SLIDESHOW SCRIPT -->
   <script>
-    // スライドショー用画像リスト
-    const images = [
-      "https://i.imgur.com/OvIjEjW.jpg",
-      "https://i.imgur.com/F1jO33R.jpg",
-      "https://i.imgur.com/SRdgCUo.jpg",
-      "https://i.imgur.com/fZglU3s.jpg",
-      "https://i.imgur.com/DE2lMyW.jpg"
+    const images=[
+      "https://i.imgur.com/lod0p5v.jpg",
+      "https://i.imgur.com/CfqICoL.jpg",
+      "https://i.imgur.com/MliaEjn.jpg",
+      "https://i.imgur.com/dU5EVNI.jpg",
+      "https://i.imgur.com/O4bEC0U.jpg",
+      "https://i.imgur.com/h4Zkudo.jpg"
     ];
-    let idx = 0;
-    const bg1 = document.getElementById('bg1');
-    const bg2 = document.getElementById('bg2');
-    const card = document.getElementById('card');
-
-    function setBackground(el, url) {
-      el.style.backgroundImage = `url('${url}')`;
-    }
-    function setCardBackground(url) {
-      card.style.backgroundImage = `url('${url}')`;
-    }
-
-    function switchSlide() {
-      const next = (idx + 1) % images.length;
-      const bottom = idx % 2 === 0 ? bg2 : bg1;
-      const top = idx % 2 === 0 ? bg1 : bg2;
-      setBackground(bottom, images[next]);
-      bottom.classList.remove('below'); bottom.classList.add('above');
-      top.classList.remove('above'); top.classList.add('below');
-      setCardBackground(images[next]);
-      idx = next;
-    }
-
-    // 初期表示
-    setBackground(bg1, images[0]);
-    setBackground(bg2, images[1]);
-    bg1.classList.add('above');
-    bg2.classList.add('below');
-    setCardBackground(images[0]);
-
-    setInterval(switchSlide, 4000);
+    let idx=0;
+    const bg1=document.getElementById('bg1');
+    const bg2=document.getElementById('bg2');
+    const card=document.getElementById('card');
+    function setBackground(el,url){el.style.backgroundImage=`url('${url}')`;}
+    function setCardBackground(url){card.style.backgroundImage=`url('${url}')`;}
+    function switchSlide(){const next=(idx+1)%images.length;const bottom=idx%2===0?bg2:bg1;const top=idx%2===0?bg1:bg2;setBackground(bottom,images[next]);bottom.classList.remove('below');bottom.classList.add('above');top.classList.remove('above');top.classList.add('below');setCardBackground(images[next]);idx=next;}
+    setBackground(bg1,images[0]);setBackground(bg2,images[1]);bg1.classList.add('above');bg2.classList.add('below');setCardBackground(images[0]);
+    setInterval(switchSlide,4000);
   </script>
+
   <!-- COUNTDOWN SCRIPT -->
   <script>
-    const targetDate = new Date("2025-08-23T00:00:00+09:00").getTime();
-    function updateCountdown() {
-      const now = Date.now();
-      let diff = Math.max(0, targetDate - now);
-      const days = String(Math.floor(diff / (1000 * 60 * 60 * 24))).padStart(2, '0');
-      const hours = String(Math.floor((diff / (1000 * 60 * 60)) % 24)).padStart(2, '0');
-      const minutes = String(Math.floor((diff / (1000 * 60)) % 60)).padStart(2, '0');
-      const seconds = String(Math.floor((diff / 1000) % 60)).padStart(2, '0');
-      document.getElementById('countdown').innerHTML =
-        `<div class="countdown-item"><span class="count-number">${days}</span><span class="count-label">DAYS</span></div>` +
-        `<div class="countdown-item"><span class="count-number">${hours}</span><span class="count-label">HOURS</span></div>` +
-        `<div class="countdown-item"><span class="count-number">${minutes}</span><span class="count-label">MINUTES</span></div>` +
-        `<div class="countdown-item"><span class="count-number">${seconds}</span><span class="count-label">SECONDS</span></div>`;
-    }
+    const targetDate=new Date("2025-08-23T00:00:00+09:00").getTime();
+    function updateCountdown(){const now=Date.now();const diff=Math.max(0,targetDate-now);const days=String(Math.floor(diff/86400000)).padStart(2,'0');const hours=String(Math.floor((diff%86400000)/3600000)).padStart(2,'0');const minutes=String(Math.floor((diff%3600000)/60000)).padStart(2,'0');const seconds=String(Math.floor((diff%60000)/1000)).padStart(2,'0');const container=document.getElementById('countdown');if(container){container.innerHTML=`<div class="countdown-item"><span class="count-number">${days}</span><span class="count-label">DAYS</span></div><div class="countdown-item"><span class="count-number">${hours}</span><span class="count-label">HOURS</span></div><div class="countdown-item"><span class="count-number">${minutes}</span><span class="count-label">MIN</span></div><div class="countdown-item"><span class="count-number">${seconds}</span><span class="count-label">SEC</span></div>`;}}
     updateCountdown();
-    setInterval(updateCountdown, 1000);
+    setInterval(updateCountdown,1000);
+  </script>
+
+  <!-- REVEAL SCRIPT -->
+  <script>
+    document.addEventListener('DOMContentLoaded',()=>{
+      const observer=new IntersectionObserver((entries,obs)=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');obs.unobserve(entry.target);}});},{threshold:0.2});
+      document.querySelectorAll('.hidden').forEach(el=>observer.observe(el));
+    });
   </script>
 </body>
 </html>
